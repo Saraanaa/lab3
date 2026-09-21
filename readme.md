@@ -10,7 +10,7 @@ Performance тестээр /cart/add endpoint-ийн хэвийн ачааллы
  /pay error rate: 20.90% →  SLO < 8% биелээгүй
  /cart/add p95: 3.02ms →  SLO < 200ms
  /report p95: 396.25ms →  SLO < 450ms
-🔌 Серверийг 10 секунд зогсоож, дахин асаасан.
+ Серверийг 10 секунд зогсоож, дахин асаасан.
  10 секундийн server downtime нь олон failed request үүсгэснээр request-based availability 81.87% болсон.
  2 минутын 90% availability-ийн time-based error budget = 12 секунд.
  Chaos үед /pay error rate өссөн нь серверийн тасалдал /pay хүсэлтүүдэд мөн нөлөөлсөнтэй холбоотой.
