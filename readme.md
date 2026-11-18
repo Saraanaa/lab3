@@ -285,16 +285,17 @@ p(95) < 100 ms
 
 ## FAIL тестийн үр дүн
 
-| Үзүүлэлт          |    Үр дүн | Threshold | Үр дүн |
-| ----------------- | --------: | --------: | ------ |
-| `/report` p95     | 408.14 ms |  < 100 ms | FAIL   |
-| `/cart/add` p95   |  42.61 ms |  < 200 ms | PASS   |
-| `/pay` error rate |     5.84% |      < 8% | PASS   |
+| Үзүүлэлт          | Үр дүн   | Threshold | Үр дүн |
+| ----------------- | -------: | --------: | ------ |
+| `/report` p95     | 398.11 ms | < 100 ms | FAIL   |
+| `/cart/add` p95   | 3.05 ms   | < 200 ms | PASS   |
+| `/pay` error rate | 5.53%     | < 8%     | PASS   |
+| Checks            | 98.15%    | > 90%    | PASS   |
 
-k6 дараах threshold алдааг мэдээлсэн:
+k6 threshold алдааны гаралт:
 
 ```text
-ERRO[0061] thresholds on metrics 'http_req_duration{name:report}' have been crossed
+time="2026-11-18T23:56:56+08:00" level=error msg="thresholds on metrics 'http_req_duration{name:report}' have been crossed"
 ```
 
 Ингэснээр threshold бодитоор зөрчигдсөн үед k6 тестийг FAIL болгож байгааг баталгаажуулсан.
@@ -390,7 +391,7 @@ bbb12d7 Add SLO pass test and results
 Chaos туршилтын үед серверийг 10 секунд зогсооход availability 81.87% болж, 90%-ийн SLO зөрчигдсөн.
 Иймээс Chaos туршилт нь availability-ийн сценарийн хэмжүүрийг баталгаажуулж, системийн тасалдал олон request-д нөлөөлж болохыг харуулсан.
 Мөн time-based 12 секундийн error budget болон request-based error budget нь өөрөөр тооцогдож болохыг туршилтаар ажигласан.
-FAIL тестэд `/report` endpoint-ийн p95 threshold-ийг 100 ms болгож зориудаар зөрчүүлснээр k6 threshold зөрчигдөх үед тест FAIL болдгийг шалгасан.
+FAIL тестэд `/report` endpoint-ийн p95 threshold-ийг 100 ms болгож зориудаар зөрчүүлснээр k6 threshold зөрчигдсөн үед тест FAIL болдгийг шалгасан.
 Ингэснээр Quality Scenario → SLO → k6 Threshold гэсэн шаардлагын шат дарааллыг бодит систем дээр хэрэгжүүлж, performance, reliability болон availability хэмжүүрүүдийг туршиж үзсэн.
 
 ---
@@ -410,3 +411,12 @@ http://localhost:3000
 ```
 
 ажиллуулсан.
+
+`results/fail.txt`-д exit code нэмэхийн тулд PowerShell дээр:
+
+k6 exit code: `99` (threshold зөрчигдсөн)
+
+
+
+
+
